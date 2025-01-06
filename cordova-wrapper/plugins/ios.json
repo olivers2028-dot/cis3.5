@@ -1,0 +1,22 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "WebViewer": {
+      "PACKAGE_NAME": "com.example.myapp"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-androidx": {
+      "PACKAGE_NAME": "com.example.myapp"
+    },
+    "cordova-plugin-androidx-adapter": {
+      "PACKAGE_NAME": "com.example.myapp"
+    }
+  }
+}

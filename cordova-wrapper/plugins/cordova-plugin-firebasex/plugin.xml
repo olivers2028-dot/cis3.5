@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-firebasex" version="X.Y.Z"
+        xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:ios="http://apple.com/ns/ib">
+  <name>Firebasex</name>
+  <description>Cordova Plugin for Firebase</description>
+  <license>MIT</license>
+  <keywords>cordova,firebase</keywords>
+
+  <!-- Define JS module for the plugin -->
+  <js-module src="www/Firebasex.js" name="Firebasex">
+    <clobbers target="window.Firebasex" />
+  </js-module>
+
+  <!-- Android platform-specific elements -->
+  <platform name="android">
+    <!-- Configurations for Android -->
+  </platform>
+
+  <!-- iOS platform-specific elements -->
+  <platform name="ios">
+    <!-- Configurations for iOS -->
+  </platform>
+
+  <!-- Other configurations, hooks, dependencies, etc. -->
+</plugin>

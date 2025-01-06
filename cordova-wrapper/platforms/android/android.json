@@ -1,0 +1,36 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "WebViewer": {
+      "PACKAGE_NAME": "com.example.myapp"
+    },
+    "cordova-plugin-androidx": {
+      "PACKAGE_NAME": "com.example.myapp"
+    },
+    "cordova-plugin-androidx-adapter": {
+      "PACKAGE_NAME": "com.example.myapp"
+    }
+  },
+  "dependent_plugins": {},
+  "modules": [
+    {
+      "id": "WebViewer.webview",
+      "file": "plugins/WebViewer/www/webview.js",
+      "pluginId": "WebViewer",
+      "clobbers": [
+        "webview"
+      ]
+    }
+  ],
+  "plugin_metadata": {
+    "WebViewer": "0.0.1",
+    "cordova-plugin-androidx": "1.0.2",
+    "cordova-plugin-androidx-adapter": "1.1.3"
+  }
+}

@@ -1,0 +1,194 @@
+<html><head><style data-emotion="css" data-s=""></style><style data-emotion="css" data-s=""></style>
+  <meta charset="utf-8">
+  <title>Home</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-eval'; connect-src 'self' https://firebasestorage.googleapis.com https://firestore.googleapis.com; img-src 'self' data: https://firebasestorage.googleapis.com https://www.google.com; script-src 'self' https://www.gstatic.com 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *">
+  <link integrity="" rel="stylesheet" href="/assets/vendor-d41d8cd98f00b204e9800998ecf8427e.css">
+  <link integrity="" rel="stylesheet" href="/assets/my-frontend-app-d41d8cd98f00b204e9800998ecf8427e.css">
+  <script type="module" src="js/setting.js"></script>
+
+  <style data-styled="active" data-styled-version="5.3.8">
+    a:link {
+      text-decoration: none;
+    }
+    a:visited {
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: none;
+    }
+    a:active {
+      text-decoration: none;
+    }
+    @font-face {
+      font-family: 'Inter';
+      font-weight: 600;
+      src: url('fonts/Inter/Inter-SemiBold.ttf') format('truetype');
+    }
+
+    @font-face {
+      font-family: 'Inter';
+      font-weight: 400;
+      src: url('fonts/Inter/Inter-Thin.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'Inter';
+      font-weight: 500;
+      src: url('fonts/Inter/Inter-Regular.ttf') format('truetype');
+    }
+
+    @font-face {
+      font-family: 'Lato';
+      font-weight: 400;
+      src: url('fonts/Lato/Lato-Regular.ttf') format('truetype');
+    }
+
+    .segmented-control {
+      display: inline-flex;
+      overflow: hidden;
+      border-radius: 20px;
+      /*display: flex;*/
+      justify-content: center;
+      align-items: center;
+
+
+    }
+
+    .segmented-control__button {
+      padding: 10px 16px;
+      font-size: 16px;
+      font-weight: 700;
+      font-family: Inter;
+      word-wrap: break-word;
+      border: none;
+      border-radius: 20px;
+      background-color: transparent;
+      color: #333;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .segmented-control__button:hover {
+      background-color: #eee;
+    }
+
+    .segmented-control__button.active {
+      background-color: #62931B;
+      color: white;
+      border-radius: 4px;
+    }
+    .nav-bar {
+      width: 100%;
+      height: 75px;
+      position: fixed;
+      bottom: 0;
+      background: #FAFAFA;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-top: 0.5px solid #BDC5CD;
+    }
+
+    .nav-icons {
+      display: flex;
+      justify-content: space-around;
+      width: 375px;
+    }
+
+    .nav-bar img {
+      width: 32px;
+      height: 32px;
+    }
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden; /* Prevent horizontal scrolling */
+    }</style><style data-styled="active" data-styled-version="5.3.8"></style>
+</head>
+
+
+<body class="ember-application" data-new-gr-c-s-check-loaded="14.1173.0" data-gr-ext-installed="">
+<!-- Main Body -->
+
+<div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+  <div style="width: 100%; height: 100%; background: white">
+    <div style="width: 100%; height: 1120px;  position: absolute">
+      <div style="width: 100%; height: 335px;top: 0px;background: #94BF1A;"></div>
+      <div style="display: flex; justify-content: center; align-items: center;">
+        <div style="width: 90%; height: 936px; top: 118px; position: absolute; background: white; box-shadow: 0px 2px 16px rgba(75.44, 75.44, 75.44, 0.15); border-radius: 16px"></div>
+
+        <div style="width: 100%; height: 845px; top: 275px; position: absolute; background: white; border-radius: 16px"></div>
+
+        <div id="profile_image">
+          <img id = "image" style="margin-bottom:5px; width: 49px; height: 49px; left: -120px; top: -200px; position: relative; box-shadow: 0px 2px 2px rgba(100.94, 100.94, 100.94,  100.94); border-radius: 9999px; border: 4px white solid" src="images/user.png">
+          <div id="username" style="width: 100%; top: -248px; left: -50px; position: relative; text-align: left; color: black; font-size: 16px; font-family: Inter; font-weight: 600; word-wrap: break-word"></div>
+          <div id="email" style="width: 100%; top: -244px; left: -50px; position: relative; text-align: left; color: grey; font-size: 14px; font-family: Inter; font-weight: 500; word-wrap: break-word"></div>
+
+        </div>
+
+
+        <div style="width: 80%; height: 0px;  top: 208px; position: absolute; border: 0.50px #CACACA solid"></div>
+      <div style="width: 80%;height: 0px;top: 395px;position: absolute;border: 0.50px #CACACA solid"></div>
+      <div style="width: 310px; height: 310px; top: 230px; position: absolute">
+        <div style="top: 0px; position: absolute; color: #ADADAD; font-size: 18px; font-family: Inter; font-weight: 400; word-wrap: break-word">Account Settings</div>
+        <a href="editProfile.html" style="width: 329px; height: 24px;top: 52px; position: absolute">
+          <div style=" left: 0; top: 1px; color: black; font-size: 18px; font-family: Inter; font-weight: 500; word-wrap: break-word; width: 120px;">Edit profile</div>
+          <div style="width: 24px; height: 24px; left: 303px; top: 0px; position: absolute">
+            <img src="images/arrow.png" style="width: 7.41px; height: 12px; left: 8.59px; top: 6px; position: absolute;">
+          </div>
+        </a>
+        <a href="changePassword.html" style="width: 339px; height: 24px; left: 0px; top: 108px; position: absolute">
+          <div style="left: 0px; top: 0px; position: absolute; color: black; font-size: 18px; font-family: Inter; font-weight: 500; word-wrap: break-word">Change password</div>
+          <div style="width: 24px; height: 24px; left: 303px; top: 0px; position: absolute">
+            <img src="images/arrow.png" style="width: 7.41px; height: 12px; left: 8.59px; top: 6px; position: absolute;">
+          </div>
+        </a>
+      </div>
+      <div style="width: 310px;height: 189px;top: 410px;position: absolute">
+        <div style="left: 0px; top: 0px; position: absolute; color: #ADADAD; font-size: 18px; font-family: Inter; font-weight: 400; word-wrap: break-word">More</div>
+        <a href="aboutUs.html"  style="width: 329px; height: 24px; left: 0px; top: 53px; position: absolute">
+          <div style="left: 0px; top: 1px; position: absolute; color: black; font-size: 18px; font-family: Inter; font-weight: 500; word-wrap: break-word">About us</div>
+          <div style="width: 24px; height: 24px; left: 303px; top: 0px; position: absolute">
+            <img src="images/arrow.png" style="width: 7.41px; height: 12px; left: 8.59px; top: 6px; position: absolute;">
+          </div>
+        </a>
+        <a href="privacyPolicy.html" style="width: 329px; height: 24px; left: 0px; top: 109px; position: absolute">
+          <div style="left: 0px; top: 0px; position: absolute; color: black; font-size: 18px; font-family: Inter; font-weight: 500; word-wrap: break-word">
+            <div  style="color: black; text-decoration: none;">Privacy policy</div>
+          </div>
+          <div style="width: 24px; height: 24px; left: 303px; top: 0px; position: absolute">
+          <img src="images/arrow.png" style="width: 7.41px; height: 12px; left: 8.59px; top: 6px; position: absolute;">
+        </div>
+        </a>
+        <a href="termsConditions.html" style="width: 329px; height: 24px; left: 0px; top: 165px; position: absolute">
+          <div  style="left: 0px; top: 0px; position: absolute; color: black; font-size: 18px; font-family: Inter; font-weight: 500; word-wrap: break-word">Terms and Conditions</div>
+          <div style="width: 24px; height: 24px; left: 303px; top: 0px; position: absolute">
+            <img src="images/arrow.png" style="width: 7.41px; height: 12px; left: 8.59px; top: 6px; position: absolute;">
+          </div>
+        </a>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- navigation bar -->
+<div class="nav-bar">
+  <div class="nav-icons">
+    <a href="home.html"><img src="images/navicons/homeicon.png" alt="Home" /></a>
+    <a href="upload_og.html"><img src="images/navicons/uploadicon.png" alt="Upload" /></a>
+    <a href="profile.html"><img src="images/navicons/profileicon.png" alt="Profile" /></a>
+    <a href="setting.html"><img src="images/navicons/settingiconact.png" alt="Settings" /></a>
+  </div>
+</div>
+
+<div></div><div id="Chat-Plugin-Root" class="compose-root-component"></div>
+<div></div>
+<grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration>
+
+
+
+
+<div></div><div id="compose-ai-general-snackbar-root"></div><div id="Chat-Plugin-Root" class="compose-root-component"></div></body></html>
