@@ -16,8 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const pathName = new URL(data.itemImageUrl).pathname;
         const imageURL = pathName.substring(pathName.lastIndexOf('/') + 1);
         const imageRef = storageRef(storage, `${imageURL}`); // Construct the reference to the image file
-        
-        if (!data.closed || !data.reserved) {
+
+        if (!data.closed) {
           getDownloadURL(imageRef) // Fetch the URL for the image
             .then((url) => {
               const div = document.createElement('div'); // Create a new div element

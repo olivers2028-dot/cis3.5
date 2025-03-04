@@ -25,8 +25,9 @@
         <param name="ios-package" value="CDVGestureHandler" />
         <param name="onload" value="true" />
     </feature>
-    <feature name="Webview">
-        <param name="ios-package" value="webviewSample" />
+    <feature name="FirebasePlugin">
+        <param name="ios-package" value="FirebasePlugin" />
+        <param name="onload" value="true" />
     </feature>
     <name>MyApp</name>
     <description>CIS Student Developed App for Goods Donation</description>
@@ -36,7 +37,7 @@
     <content src="login.html" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
-    <resource-file src="/Users/cici/WebstormProjects/cis/cordova-wrapper/platforms/ios/MyApp/GoogleService-Info.plist" />
+    <resource-file src="/Users/christian/IdeaProjects/cis4.5/cordova-wrapper/platforms/ios/MyApp/Resources/GoogleService-Info.plist" />
     <access origin="https://*.firebaseio.com" />
     <access origin="https://*.googleapis.com" />
     <access origin="*" />

@@ -13,11 +13,11 @@
   "author": "Apache Cordova Team",
   "license": "Apache-2.0",
   "devDependencies": {
-    "cordova-android": "^13.0.0",
-    "cordova-ios": "^7.1.0",
+    "cordova-ios": "^7.1.1",
     "cordova-plugin-androidx": "^1.0.2",
     "cordova-plugin-androidx-adapter": "^1.1.3",
-    "cordova-plugin-firebasex": "^9.0.1-cli",
+    "cordova-plugin-firebase": "^2.0.6",
+    "cordova-plugin-firebasex": "^18.0.6",
     "cordova-plugin-googleplus": "^7.0.2",
     "cordova-plugin-inappbrowser": "^6.0.0",
     "cordova-plugin-ionic-webview": "github:ionic-team/cordova-plugin-ionic-webview",
@@ -26,11 +26,6 @@
   "cordova": {
     "platforms": [],
     "plugins": {
-      "cordova-plugin-firebasex": {
-        "FIREBASE_ANALYTICS_COLLECTION_ENABLED": "true",
-        "FIREBASE_PERFORMANCE_COLLECTION_ENABLED": "true",
-        "FIREBASE_CRASHLYTICS_COLLECTION_ENABLED": "true"
-      },
       "WebViewer": {},
       "cordova-plugin-inappbrowser": {},
       "cordova-plugin-ionic-webview": {}

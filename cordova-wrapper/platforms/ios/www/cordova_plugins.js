@@ -1,17 +1,17 @@
 cordova.define('cordova/plugin_list', function(require, exports, module) {
   module.exports = [
     {
-      "id": "WebViewer.webview",
-      "file": "plugins/WebViewer/www/webview.js",
-      "pluginId": "WebViewer",
+      "id": "cordova-plugin-firebase.FirebasePlugin",
+      "file": "plugins/cordova-plugin-firebase/www/firebase.js",
+      "pluginId": "cordova-plugin-firebase",
       "clobbers": [
-        "webview"
+        "FirebasePlugin"
       ]
     }
   ];
   module.exports.metadata = {
-    "WebViewer": "0.0.1",
     "cordova-plugin-androidx": "1.0.2",
-    "cordova-plugin-androidx-adapter": "1.1.3"
+    "cordova-plugin-androidx-adapter": "1.1.3",
+    "cordova-plugin-firebase": "2.0.6"
   };
 });
