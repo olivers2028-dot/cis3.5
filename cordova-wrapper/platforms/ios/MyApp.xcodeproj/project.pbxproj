@@ -30,7 +30,6 @@
 		A1574DA662FA46AABC48FBF7 /* GoogleAppMeasurement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0183D1432D847108468D7DA /* GoogleAppMeasurement.framework */; };
 		A74237F0CC3CB8B0E775F9C7 /* libPods-MyApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 776B5EA0D3F703C638F59709 /* libPods-MyApp.a */; };
 		A84AD273D5844D57B3B906B1 /* AppDelegate+FirebasePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = F1E7EE3FB03548FA9F3D83F8 /* AppDelegate+FirebasePlugin.m */; };
-		AA92788F2D773077001601EE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA9278812D771E7A001601EE /* GoogleService-Info.plist */; };
 		B326508567DF4158AE5651B6 /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC3CE949EEAB4A4788A455C1 /* GTMSessionFetcher.framework */; };
 		BB2076D4CBE04E6AAB05087E /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCC3CE618F404219A77644B2 /* FirebaseInstanceID.framework */; };
 		C4B11877BD374B61B71527BE /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 520AAAE7C9484AE79837D26A /* nanopb.framework */; };
@@ -111,7 +110,6 @@
 		8D1107310486CEB800E47090 /* MyApp-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MyApp-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		90B630EE2AECBBD0009EF368 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		9CCB213A10104A748F7A3DED /* Crashlytics.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = "MyApp/Plugins/cordova-plugin-firebase/Crashlytics.framework"; sourceTree = "<group>"; };
-		AA9278812D771E7A001601EE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B04B220CE0704BADA07C9006 /* FirebaseMessaging.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = FirebaseMessaging.framework; path = "MyApp/Plugins/cordova-plugin-firebase/FirebaseMessaging.framework"; sourceTree = "<group>"; };
 		B0CF93ACB330D6ED2AE08F89 /* Pods-MyApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyApp.release.xcconfig"; path = "Target Support Files/Pods-MyApp/Pods-MyApp.release.xcconfig"; sourceTree = "<group>"; };
 		BC3CE949EEAB4A4788A455C1 /* GTMSessionFetcher.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = GTMSessionFetcher.framework; path = "MyApp/Plugins/cordova-plugin-firebase/GTMSessionFetcher.framework"; sourceTree = "<group>"; };
@@ -210,7 +208,6 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				AA9278812D771E7A001601EE /* GoogleService-Info.plist */,
 			);
 			name = Resources;
 			path = MyApp/Resources;
@@ -380,7 +377,6 @@
 				0207DA581B56EA530066E2B4 /* Assets.xcassets in Resources */,
 				90B630EF2AECBBD0009EF368 /* PrivacyInfo.xcprivacy in Resources */,
 				6AFF5BF91D6E424B00AB3073 /* CDVLaunchScreen.storyboard in Resources */,
-				AA92788F2D773077001601EE /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
