@@ -56,6 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
       var item_name = document.getElementById('item_name').value;
       var quantity = document.getElementById('quantity').value;
       var category = document.getElementById('dropdown_button').textContent;
+      var description = document.getElementById('item_description').value;
       //get the current date as of pressing the submit button
       const currentDate = new Date();
       // convert to YYYY-MM-DD format
@@ -84,8 +85,11 @@ document.addEventListener('DOMContentLoaded', () => {
       else if (category == 'Item Category') {
         alert('Please select a category for your item');
       }
-      else if (item_name != null && quantity != null && category!= null) {
-        submitItem(item_name, quantity, category, formattedDate, userId, username);
+      else if (description == null) {
+        alert('Please give a description')
+      }
+      else {
+        submitItem(item_name, quantity, category, description, formattedDate, userId, username);
         console.log('submitted');
         alert('testing')
         openPopup();
@@ -93,23 +97,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-async function submitItem(item_name, item_quantity, item_category, time_uploaded, userID, username) {
-  const itemImageInput = document.getElementById('fileInp');
-  const allowedTypes = ['image/png', 'image/jpeg', 'image/jpg'];
+async function submitItem(item_name, item_quantity, item_category, description, time_uploaded, userID, username) {
+  // Get selected year levels
+  const recommendedFor = Array.from(document.querySelectorAll('#yearDropdown input:checked'))
+    .map(checkbox => checkbox.value);
 
-  if (!allowedTypes.includes(itemImageInput.files[0].type)) {
-      alert('Please upload a PNG, JPG, or JPEG image.');
-      return; // Stop the function if the file is not one of the allowed types
-  }
-
-  // Add a new document with a generated id.
+  // Add to Firestore document
   const docRef = await addDoc(collection(db, 'items'), {
     category: item_category,
     name: item_name,
     quantity: item_quantity,
+    description: description,
     time: time_uploaded,
     userId: userID,
     username: username,
+    recommendedFor: recommendedFor // Add this array field
   });
   // Get the new document Id
   const documentId = docRef.id;
@@ -171,6 +173,7 @@ class Item {
     imageURL,
     name,
     quantity,
+    description,
     time,
     userId,
     username,
@@ -181,6 +184,7 @@ class Item {
     this.imageURL = imageURL;
     this.name = name;
     this.quantity = quantity;
+    this.description = description;
     this.time = time;
     this.userId = userId;
     this.username = username;
@@ -198,6 +202,8 @@ class Item {
       this.name +
       ',' +
       this.quantity +
+      ',' +
+      this.description +
       ',' +
       this.time +
       ',' +
@@ -218,6 +224,7 @@ const itemConverter = {
       imageURL: item.imageURL,
       name: item.name,
       quantity: item.quantity,
+      description: item.quantity,
       time: item.time,
       userId: item.userId,
       username: item.username,
@@ -232,6 +239,7 @@ const itemConverter = {
       data.imageURL,
       data.name,
       data.quantity,
+      data.description,
       data.time,
       data.userId,
       data.username,

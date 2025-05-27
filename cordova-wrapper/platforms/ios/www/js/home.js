@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 itemList.appendChild(div); // Append the div to the container element
                 i++;
-                itemList.style.minHeight = `${(i / 3) * 170 + 200}px`;
+                itemList.style.minHeight = x`${(i / 3) * 170 + 200}px`;
               })
               .catch((error) => {
                 console.error('Error getting download URL: ', error);

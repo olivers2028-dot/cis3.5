@@ -5,7 +5,7 @@ import {
   getAuth, signOut, onAuthStateChanged
 } from 'https://www.gstatic.com/firebasejs/9.1.1/firebase-auth.js';
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.1.1/firebase-app.js';
-import { doc } from 'https://www.gstatic.com/firebasejs/9.1.1/firebase-firestore.js';
+import { deleteDoc, doc } from 'https://www.gstatic.com/firebasejs/9.1.1/firebase-firestore.js';
 
 
 const firebaseConfig = {
@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const buttondiv = document.getElementById('buttondiv'); // Get the container element
                     const button = document.createElement('div');
                     button.innerHTML = `
-  <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 20vh; text-align: center;">
+  <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 20vh; text-align: center; gap: 30px">
     <p style="color: red; font-size: 12px; font-family: Inter; font-weight: 400; margin: 0;">
       This item is reserved by ${data.reservedName}
     </p>
@@ -108,8 +108,15 @@ document.addEventListener('DOMContentLoaded', () => {
         Close item
       </a>
     </div>
+    //my code on delete button - real:
+    <div style="height: 22px; padding-left: 120px; padding-right: 120px; padding-top: 16px; padding-bottom: 16px; background: #62931B; border-radius: 100px; display: inline-flex; justify-content: center; align-items: center; margin-top: 20px;">
+      <a id="delete" style="text-align: center; color: white; font-size: 16px; font-family: 'Inter'; font-weight: 700; text-decoration: none;">
+        Delete item
+      </a>
+    </div>
   </div>
 `;
+                    console.log('Created button:', button.outerHTML);
                     buttondiv.appendChild(button); // Append the div to the container element
                     document.getElementById('close').addEventListener('click', function(event) {
                         const docId = data.id; // Assume you have the document ID
@@ -124,7 +131,17 @@ document.addEventListener('DOMContentLoaded', () => {
                             console.error('Error updating document: ', error);
                           });
                       });
-                  } //owner can see who reserved
+                    //This is a code that should be negligible, but just in case the other code for the delete button doesn't work, use this.
+                    buttondiv.appendChild(button)
+                    document.getElementById('delete').addEventListener('click', function(event) {
+                        const docId = data.id; // Assume you have the document ID
+                        console.log(docId);
+                        console.log("delete button is clicked");
+                        deleteDoc(docRef);
+                        console.log('Document successfully updated!');
+                    }); //owner can see who reserved
+                  }
+
                   else if (data.reserved === userId && data.closed) {
                     const buttondiv = document.getElementById('buttondiv'); // Get the container element
                     const ratingDiv = document.createElement('div');
@@ -173,7 +190,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     const buttondiv = document.getElementById('buttondiv'); // Get the container element
                     const button = document.createElement('div');
                     button.innerHTML = `
-
                      <div
                       style="height: 22px; padding-left: 110px; padding-right: 110px; padding-top: 16px; padding-bottom: 16px; position: relative; background: #62931B; border-radius: 100px; display: inline-flex; justify-content: center; align-items: center;">
                       <a id="close" style="text-align: center; color: white; font-size: 16px; font-family: 'Inter'; font-weight: 700; text-decoration: none;">Cancel reserve</a>
@@ -197,10 +213,16 @@ document.addEventListener('DOMContentLoaded', () => {
                     const buttondiv = document.getElementById('buttondiv'); // Get the container element
                     const button = document.createElement('div');
                     button.innerHTML = `
-                     <div
-                      style="height: 22px; padding-left: 120px; padding-right: 120px; padding-top: 16px; padding-bottom: 16px; position: relative; background: #62931B; border-radius: 100px; display: inline-flex; justify-content: center; align-items: center;">
-                      <a id="close"
-                         style="text-align: center; color: white; font-size: 16px; font-family: 'Inter'; font-weight: 700; text-decoration: none;">Close item</a>
+                  <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 10px;">
+                     <div style="height: 22px; padding-left: 120px; padding-right: 120px; padding-top: 16px; padding-bottom: 16px; position: relative; background: #62931B; border-radius: 100px; display: inline-flex; justify-content: center; align-items: center;">
+                       <a id="close"
+                           style="text-align: center; color: white; font-size: 16px; font-family: 'Inter'; font-weight: 700; text-decoration: none;">Close item</a>
+                     </div>
+                     <div style="height: 22px; padding-left: 120px; padding-right: 120px; padding-top: 16px; padding-bottom: 16px; background: #62931B; border-radius: 100px; display: inline-flex; justify-content: center; align-items: center; margin-top: 20px;">
+                        <a id="delete" style="text-align: center; color: white; font-size: 16px; font-family: 'Inter'; font-weight: 700; text-decoration: none;">
+                          Delete item
+                        </a>
+                     </div>
                     </div>`;
                     buttondiv.appendChild(button); // Append the div to the container element
                     document.getElementById('close').addEventListener('click', function(event) {
@@ -216,7 +238,17 @@ document.addEventListener('DOMContentLoaded', () => {
                           console.error('Error updating document: ', error);
                         });
                     });
-                  } //onwer can close a deal
+                    //This should be the code for the delete button that works
+                    buttondiv.appendChild(button)
+                    document.getElementById('delete').addEventListener('click', function(event) {
+                        const docId = data.id; // Assume you have the document ID
+                        console.log("delete button is clicked");
+                        console.log(docId);
+                        console.log(docRef);
+                        deleteDoc(docRef);
+                        console.log("Document successfully deleted!");
+                    }); //onwer can close a deal
+                }
                   else if (data.closed === true) {
                     const buttondiv = document.getElementById('buttondiv'); // Get the container element
                     const button = document.createElement('div');
