@@ -1,45 +1,41 @@
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.1.1/firebase-app.js';
-import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.1.1/firebase-auth.js';
+const urlParams = new URLSearchParams(window.location.search);
+const email = urlParams.get('email');
 
+const code = Math.floor(Math.random()*1000000)
+localStorage.setItem('otpCode', code.toString());
 
+function sendMail() {
 
-const functions = require('firebase-functions');
-const nodemailer = require('nodemailer');
-const admin = require('firebase-admin');
-admin.initializeApp();
+  var params = {
+    email: email,
+    code: localStorage.getItem('otpCode'),
+  };
 
-document.getElementById('sendCode').addEventListener('click', async function() {
-  try {
-    // Generate a new code
-    const code = Math.floor(100000 + Math.random() * 900000);
+  const serviceID = "service_gcekgr6";
+  const templateID = "template_2kbzbpp";
 
-    // Call Firebase Function to send email
-    const sendEmail = httpsCallable(functions, 'sendVerificationEmail');
-    const result = await sendEmail({
-      recipientEmail: 'christianlyuen@gmail.com' // Replace with actual user email
-    });
+    emailjs.send(serviceID, templateID, params)
+    .then(res=>{
+        document.getElementById("email").value = "";
+        document.getElementById("code").value = "";
+        console.log(res);
+        alert("Your message sent successfully!!")
+    })
+    .catch(err=>console.log(err));
 
-    alert('Verification code sent to your email!');
+}
 
-    // Store the code temporarily for verification
-    sessionStorage.setItem('verificationCode', code.toString());
-    console.log("Test")
-
-  } catch (error) {
-    console.error('Error sending email:', error);
-    alert('Failed to send verification code. Please try again.');
-  }
-});
-
-// Verification code check when clicking "Begin Sharing!"
-document.getElementById('login').addEventListener('click', function() {
-  const enteredCode = document.getElementById('password').value;
-  const storedCode = sessionStorage.getItem('verificationCode');
-
-  if (enteredCode === storedCode) {
-    alert('Verification successful!');
-    // Proceed with login or whatever action comes next
+function verifyCode() {
+  const userInput = document.getElementById('otpInput').value;
+  const storedCode = localStorage.getItem('otpCode');
+  console.log(userInput)
+  console.log(storedCode)
+  
+  if (userInput == storedCode) {
+    alert('Login successful!');
+    localStorage.removeItem('otpCode');
+    window.location.href = 'home.html';
   } else {
-    alert('Invalid verification code. Please try again.');
+    alert('Invalid code. Please try again.');
   }
-});
+}

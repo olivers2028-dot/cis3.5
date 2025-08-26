@@ -50,55 +50,66 @@ function calcYearLevWithGradYear(email) {
 // Main signup function with email verification
 async function signUp(username, email, password) {
   try {
-    // 1. Send verification email via Python API
-    const verificationResponse = await fetch('http://localhost:5000/send_verification', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ email })
-    });
-
-    const verificationData = await verificationResponse.json();
-
-    if (!verificationData.success) {
-      throw new Error('Failed to send verification email');
+    console.log("Starting signup process...");
+    
+    // Validate email format
+    if (!/@(student\.)?cis\.edu\.hk$/.test(email)) {
+      throw new Error('Please use a valid CIS email address (ending with @student.cis.edu.hk or @cis.edu.hk)');
     }
 
-    // 2. Prompt user for verification code
-    const userCode = prompt(`Verification code sent to ${email}. Enter the code:`);
-
-    if (userCode !== verificationData.code) {
-      throw new Error('Invalid verification code');
-    }
-
-    // 3. Create Firebase auth user
+    console.log("Creating Firebase auth user...");
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
+    console.log("Auth user created:", user.uid);
 
-    // 4. Calculate year level
+    // Calculate year level
+    console.log("Calculating year level...");
     const yearLevel = calcYearLevWithGradYear(email);
-    if (yearLevel === null) {
-      throw new Error('Invalid CIS email format');
+    if (!yearLevel || yearLevel < 7 || yearLevel > 13) {
+      throw new Error('Could not determine valid year level from email');
     }
 
-    // 5. Save user data to Firestore
-    await setDoc(doc(db, 'users', user.uid), {
+    // Prepare user data
+    const userData = {
       username,
       email,
       userId: user.uid,
-      phone: null,
       yearLevel,
-      createdAt: new Date().toISOString()
-    });
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString()
+    };
 
-    // 6. Success
-    alert('Registration successful! Redirecting to login...');
-    window.location.href = 'code.html';
+    console.log("Saving to Firestore...");
+    await setDoc(doc(db, 'users', user.uid), userData);
+    console.log("User data saved successfully");
 
+    // Redirect to OTP page
+    window.location.href = `code.html?email=${encodeURIComponent(email)}`;
+    
   } catch (error) {
     console.error('Signup error:', error);
-    alert(`Registration failed: ${error.message}`);
+    
+    let errorMessage = 'Registration failed. Please try again.';
+    
+    if (error.code) {
+      switch(error.code) {
+        case 'auth/email-already-in-use':
+          errorMessage = 'This email is already registered';
+          break;
+        case 'auth/invalid-email':
+          errorMessage = 'Invalid email format';
+          break;
+        case 'auth/weak-password':
+          errorMessage = 'Password must be at least 6 characters';
+          break;
+        case 'permission-denied':
+          errorMessage = 'Database permission denied. Check Firestore rules';
+          break;
+      }
+    }
+    
+    alert(errorMessage);
+    return false;
   }
 }
 

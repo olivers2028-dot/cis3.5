@@ -35,6 +35,5 @@ document.getElementById('login').addEventListener('click', function() {
 
 onAuthStateChanged(auth, (user) => {
   if (user) {
-    window.location.href = 'home.html';
   }
 });
